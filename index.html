@@ -5,25 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz Aniversário</title>
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Confetti JS -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         body {
-            background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-            height: 100vh;
+            background: #800000;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container-central {
             display: flex;
-            justify-content: center;
-            align-items: center;
             flex-direction: column;
-            overflow: hidden;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
         }
 
         #mensagem {
             display: none;
-            text-align: center;
-            animation: fadeInUp 2s ease forwards;
+            animation: fadeInUp 1.5s ease forwards;
+            width: 100%;
+            max-width: 800px;
+            margin-top: 20px;
         }
 
         @keyframes fadeInUp {
@@ -39,29 +45,45 @@
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 2.6rem;
             color: white;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
         }
 
         p {
             font-size: 1.5rem;
             color: white;
+            margin: 0 auto 20px auto;
+            line-height: 1.6;
+        }
+
+        img {
+            width: 120px;
+            height: auto;
+            margin-top: 30px;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Botão centralizado -->
-    <button id="btnClique" class="btn btn-primary btn-lg rounded-pill shadow">
-        Clique aqui
-    </button>
+    <div class="container-central">
+        <!-- Botão centralizado -->
+        <button id="btnClique" class="btn btn-primary btn-lg rounded-pill shadow">
+            Clique aqui
+        </button>
 
-    <!-- Mensagem de aniversário -->
-    <div id="mensagem" class="mt-4">
-        <h1>🎉 Feliz Aniversário! 🎂</h1>
-        <p>Desejamos a você muitas felicidades e sucesso! <br> Atenciosamente, João e Yanne</p>
+        <!-- Mensagem de aniversário -->
+        <div id="mensagem">
+            <h1>🎉 Feliz Aniversário, Sabrina! 🎂</h1>
+            <p>
+                A equipe de TI lhe deseja muito sucesso, saúde e conquistas.<br>
+                Que este novo ciclo seja repleto de realizações profissionais e pessoais.<br><br>
+                Atenciosamente, João e Yanne
+            </p>
+            <img src="./logo branco.png" alt="logo">
+        </div>
     </div>
 
     <script>
@@ -70,7 +92,7 @@
 
         btn.addEventListener("click", () => {
             // Esconde botão
-            btn.style.display = "none";
+            btn.remove(); // <--- remove do DOM, garantindo que suma de vez
             // Mostra mensagem
             msg.style.display = "block";
 
@@ -98,6 +120,7 @@
             }());
         });
     </script>
+
 </body>
 
 </html>
